@@ -1,12 +1,31 @@
-from rest_framework import views
+from rest_framework import views, viewsets
 from rest_framework.response import Response
-from .models import Material, ProductMaterial, Product, Warehouse
-from .serializers import WarehouseSerializer
+from .models import Material, Product, Warehouse, ProductMaterialModel
+from .serializers import WarehouseSerializer, ProductSerializer, ProductMaterialSerializer, MaterialSerializer, WarehousePostSerializer
 from .utils.product import ProductClass
 from .utils.product_materials import ProductMaterial
 
 
 # Bu yerda faqatgina GET request li APIView dan foydalandim.
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class MaterialViewSet(viewsets.ModelViewSet):
+    queryset = Material.objects.all()
+    serializer_class = MaterialSerializer
+
+
+class ProductMaterialViewSet(viewsets.ModelViewSet):
+    queryset = ProductMaterialModel.objects.all()
+    serializer_class = ProductMaterialSerializer
+
+
+class WarehouseViewSet(viewsets.ModelViewSet):
+    queryset = Warehouse.objects.all()
+    serializer_class = WarehousePostSerializer
 
 
 class ProductGetMaterialsView(views.APIView):

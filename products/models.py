@@ -12,7 +12,7 @@ class Material(models.Model):
     material_name = models.CharField(max_length=500)
 
 
-class ProductMaterial(models.Model):
+class ProductMaterialModel(models.Model):
     product_id = models.ForeignKey(Product, models.CASCADE, related_name="product_material")
     material_id = models.ForeignKey(Material, models.CASCADE, related_name="material_product")
     quantity = models.FloatField()
