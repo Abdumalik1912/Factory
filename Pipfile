@@ -10,6 +10,7 @@ psycopg2 = "*"
 whitenoise = "*"
 gunicorn = "*"
 uvicorn = "*"
+drf-yasg = "*"
 
 [dev-packages]
 
